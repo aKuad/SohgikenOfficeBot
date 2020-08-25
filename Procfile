@@ -1,1 +1,1 @@
-web: python main.py
+web: gunicorn apl_name : main
