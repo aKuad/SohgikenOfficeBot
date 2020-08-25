@@ -3,6 +3,7 @@
 # main.py
 
 from flask import Flask, request
+import os
 app = Flask(__name__)
 
 @app.route("/hello", methods=['POST'])
@@ -18,4 +19,4 @@ def er_404(e):
   return '''{"ok": false, "message": "Invalid path"}''', 404
 
 if __name__ == "__main__":
-  app.run(host='0.0.0.0', port=$PATH)
+  app.run(host='0.0.0.0', port=os.environ['PORT'])
