@@ -18,4 +18,4 @@ def er_404(e):
   return '''{"ok": false, "message": "Invalid path"}''', 404
 
 if __name__ == "__main__":
-  app.run(host='0.0.0.0', port=5000)
+  app.run(host='0.0.0.0', port=$PATH)
