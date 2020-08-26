@@ -8,7 +8,7 @@ import sys
 
 sys.path.append("./scmd")
 
-import scmd.echo
+import echo
 
 app = Flask(__name__)
 TOKEN_BEARER = os.environ['S_TOKEN_BEARER']
