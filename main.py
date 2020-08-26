@@ -4,6 +4,9 @@
 
 from flask import Flask, request
 import os
+import sys
+
+sys.path.append("./scmd")
 
 import scmd.echo
 
