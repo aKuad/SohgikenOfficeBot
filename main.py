@@ -36,7 +36,7 @@ def wh_scmd_echo():
     "user_name": request.form.get("user_name"),
     "text": request.form.get("text")
   }
-  print (scmd.echo(TOKEN, datas))
+  print (echo.echo(TOKEN, datas))
   return ''
 
 @app.errorhandler(404)
