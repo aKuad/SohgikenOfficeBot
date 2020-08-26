@@ -1,6 +1,6 @@
-# coding: utf-8
 #
 # main.py
+#
 
 from flask import Flask, request
 import os
