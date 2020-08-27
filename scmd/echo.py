@@ -23,7 +23,7 @@ def echo(TOKEN_BEARER, datas):
       {
         "color": "good",
         "author_icon": recv_uico,
-        "author_name": "by <@" + datas["user_id"] + "|" + datas["user_name"] + ">",
+        "author_name": "<@" + datas["user_id"] + "|" + datas["user_name"] + ">",
         "text": datas["text"],
         "footer": "SohgikenOfficeBot `/echo`"
       }
