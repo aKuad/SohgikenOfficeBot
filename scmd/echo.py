@@ -3,10 +3,18 @@
 #
 
 import requests
+import json
 
-def echo(TOKEN, datas):
+def echo(TOKEN_BEARER, datas):
+  # Get user icon url
+  post_url = "https://slack.com/api/users.info?token=" + TOKEN_BEARER + " + &user=" + datas["user_id"]
+  recv_raw = requests.get(post_url)
+  recv_txt = json.loads(result.text)
+  recv_uico = recv_txt["user"]["profile"]["image_72"]
+
+  # Make post content
   post_url = "https://slack.com/api/chat.postMessage"
-  post_head = {"Content-type": "application/json; charset=UTF-8;", "Authorization": "Bearer " + TOKEN}
+  post_head = {"Content-type": "application/json; charset=UTF-8;", "Authorization": "Bearer " + TOKEN_BEARER}
   post_body = {
     "channel": datas["channel_id"],
     "as_user": True,
@@ -14,8 +22,10 @@ def echo(TOKEN, datas):
     "attachments": [
       {
         "color": "good",
+        "author_icon": recv_uico,
+        "author_name": "by <@" + datas["user_id"] + "|" + datas["user_name"] + ">",
         "text": datas["text"],
-        "footer": "by <@" + datas["user_id"] + "|" + datas["user_name"] + ">"
+        "footer": "SohgikenOfficeBot `/echo`"
       }
     ]
   }
