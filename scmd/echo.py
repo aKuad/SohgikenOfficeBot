@@ -7,7 +7,7 @@ import json
 
 def echo(TOKEN_BEARER, datas):
   # Get user icon url
-  post_url = "https://slack.com/api/users.info?token=" + TOKEN_BEARER + " + &user=" + datas["user_id"]
+  post_url = "https://slack.com/api/users.info?token=" + TOKEN_BEARER + "&user=" + datas["user_id"]
   recv_raw = requests.get(post_url)
   recv_txt = json.loads(recv_raw.text)
   recv_uico = recv_txt["user"]["profile"]["image_72"]
