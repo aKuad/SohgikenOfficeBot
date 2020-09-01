@@ -40,7 +40,7 @@ def echo(TOKEN_BEARER, datas):
 
   if flag_help == True:
     # Help page print
-    post_url = "https://slack.com/api/chat.postEphemeral"
+    post_url = "https://slack.com/api/chat.postMessage"
     post_body = {
       "channel": datas["channel_id"],
       "user": datas["user_id"],
