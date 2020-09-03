@@ -40,7 +40,7 @@ def echo(TOKEN_BEARER, datas):
 
   if flag_help == True:
     # Help page print
-    post_url = "https://slack.com/api/chat.postMessage"
+    post_url = "https://slack.com/api/chat.postEphemeral"
     post_body = {
       "channel": datas["channel_id"],
       "user": datas["user_id"],
@@ -48,8 +48,6 @@ def echo(TOKEN_BEARER, datas):
       "text": "",
       "attachments": [
         {
-          "title": "Help for `/echo`",
-          "text": "",
           "blocks": [
             {
               "type": "header",
@@ -57,11 +55,11 @@ def echo(TOKEN_BEARER, datas):
             },
             {
               "type": "section",
-              "text": { "type": "plain_text", "text": "Print a entered string", "emoji": True }
+              "text": { "type": "mrkdwn", "text": "Print a entered string" }
             },
             {
               "type": "section",
-              "text": { "type": "plain_text", "text": "Useage: `/echo [options] <string>`", "emoji": True }
+              "text": { "type": "mrkdwn", "text": "Useage: `/echo [options] <string>`" }
             },
             {
               "type": "header",
@@ -69,14 +67,13 @@ def echo(TOKEN_BEARER, datas):
             },
             {
               "type": "section",
-              "text": { "type": "plain_text", "text": "  `--help` : Print this manual", "emoji": True }
+              "text": { "type": "mrkdwn", "text": "  `--help` : Print this manual" }
             },
             {
               "type": "section",
-              "text": { "type": "plain_text", "text": "  `-s --simple` : Echo without ritch decoration", "emoji": True }
+              "text": { "type": "mrkdwn", "text": "  `-s --simple` : Echo without ritch decoration" }
             }
           ],
-          "footer": "SohgikenOfficeBot `/echo`"
         }
       ]
     }
