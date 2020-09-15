@@ -6,8 +6,8 @@
 # Module import
 ## Standard & Extension modules
 import requests
+import json
 import os
-import sys
 
 
 # Function define

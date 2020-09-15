@@ -6,9 +6,9 @@
 # Module import
 ## Standard & Extension modules
 import requests
+import json
 import random
 import os
-import sys
 
 
 # Function define
