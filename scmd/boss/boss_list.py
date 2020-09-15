@@ -29,6 +29,10 @@ def boss_list(TOKEN_BEARER, datas):
         var_cdlist.append(stt_dcpart["text"].split("\n", 1)[1])
 
 
+  # Make post headder
+  post_head = {"Content-type": "application/json; charset=UTF-8;", "Authorization": "Bearer " + TOKEN_BEARER}
+
+
   # Branch with cause of death count is 0 or not
   ## When cause count is not 0
   if len(var_cdlist) != 0:
