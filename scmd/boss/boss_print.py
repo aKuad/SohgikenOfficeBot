@@ -180,7 +180,7 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
     # Get user icon url
     get_data = requests.get("https://slack.com/api/users.info?token=" + TOKEN_BEARER + "&user=" + datas["user_id"])
     get_dic = json.loads(get_data.text)
-    post_uico = recv_json["user"]["profile"]["image_72"]
+    post_uico = get_dic["user"]["profile"]["image_72"]
 
     # Make message
     post_url = "https://slack.com/api/chat.postMessage"
@@ -210,7 +210,7 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
     # Get user icon url
     get_data = requests.get("https://slack.com/api/users.info?token=" + TOKEN_BEARER + "&user=" + datas["user_id"])
     get_dic = json.loads(get_data.text)
-    post_uico = recv_json["user"]["profile"]["image_72"]
+    post_uico = get_dic["user"]["profile"]["image_72"]
 
     # Make message
     post_url = "https://slack.com/api/chat.postMessage"
