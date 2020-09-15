@@ -43,7 +43,7 @@ def wh_scmd_echo():
 
 # Slash command '/boss'
 @app.route("/scmd/boss", methods=['POST'])
-def wh_scmd_echo():
+def wh_scmd_boss():
   print("---- Slash command 'boss' has run ----")
   print(request.headers)
   print("body: %s" % request.get_data())
