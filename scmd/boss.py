@@ -1,6 +1,8 @@
 #
 # boss.py
 #
+# -*- coding: UTF-8 -*-
+#
 
 # Module import
 ## Standard & Extension modules

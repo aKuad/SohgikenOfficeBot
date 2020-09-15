@@ -1,6 +1,8 @@
 #
 # boss/boss_print.py
 #
+# -*- coding: UTF-8 -*-
+#
 
 # Module import
 ## Standard & Extension modules
