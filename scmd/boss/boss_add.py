@@ -23,7 +23,7 @@ def boss_add(TOKEN_BEARER, datas, var_intext):
     post_body = {
       "channel": os.environ['S_CHID_BOTCDN'],
       "text": "<@" + datas["user_id"] + "|" + datas["user_name"] + ">\n" + var_intext,
-      "ts": os.environ['S_MSGTS_BOSS_TEXT']
+      "thread_ts": os.environ['S_MSGTS_BOSS_TEXT']
     }
     stt_result = requests.post(post_url, headers=post_head, json=post_body)
     print(stt_result.text)
