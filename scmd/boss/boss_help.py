@@ -49,7 +49,7 @@ def boss_help(TOKEN_BEARER, datas):
           {
             "type": "section",
             "text": { "type": "mrkdwn", "text": "`add <string>` `a <string>` : Add a cause of death" }
-          }
+          },
           {
             "type": "section",
             "text": { "type": "mrkdwn", "text": "`list` `l` : Print a list  of posted causes" }
