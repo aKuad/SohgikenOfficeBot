@@ -78,7 +78,7 @@ def boss_delete(TOKEN_BEARER, datas, var_intext):
   ## Send request and receive
   get_url = "https://slack.com/api/conversations.replies?token=" + TOKEN_BEARER + "&ts=" + os.environ['S_MSGTS_BOSS_TEXT']
   get_head = {"Content-type": "application/json; charset=UTF-8;"}
-  get_data = requests.get(post_url, headers=post_head)
+  get_data = requests.get(get_url, headers=get_head)
   get_dic = json.loads(get_data.text)
 
   ## Process received string
