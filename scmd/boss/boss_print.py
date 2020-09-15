@@ -19,7 +19,7 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
 
   # Get cause list
   ## Send request and receive
-  get_url = "https://slack.com/api/conversations.replies?token=" + TOKEN_BEARER + "&ts=" + os.environ['S_MSGTS_BOSS_TEXT']
+  get_url = "https://slack.com/api/conversations.replies?token=" + TOKEN_BEARER + "&channel=" + os.environ['S_CHID_BOTCDN'] + "&ts=" + os.environ['S_MSGTS_BOSS_TEXT']
   get_head = {"Content-type": "application/json; charset=UTF-8;"}
   get_data = requests.get(get_url, headers=get_head)
   get_dic = json.loads(get_data.text)
@@ -27,15 +27,16 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
   ## Process received string
   var_atlist = []
   var_cdlist = []
-  for stt_dcpart in get_dic["messages"]:
-    if stt_dcpart["thread_ts"] == os.environ['S_MSGTS_BOSS_TEXT'] and stt_dcpart["ts"] != os.environ['S_MSGTS_BOSS_TEXT']:
-      var_atlist.append(stt_dcpart["text"].split("\n", 1)[0])
-      var_cdlist.append(stt_dcpart["text"].split("\n", 1)[1])
+  if get_dic["ok"] == True:
+    for stt_dcpart in get_dic["messages"]:
+      if stt_dcpart["thread_ts"] == os.environ['S_MSGTS_BOSS_TEXT'] and stt_dcpart["ts"] != os.environ['S_MSGTS_BOSS_TEXT']:
+        var_atlist.append(stt_dcpart["text"].split("\n", 1)[0])
+        var_cdlist.append(stt_dcpart["text"].split("\n", 1)[1])
 
 
   # Get image url list
   ## Send request and receive
-  get_url = "https://slack.com/api/conversations.replies?token=" + TOKEN_BEARER + "&ts=" + os.environ['S_MSGTS_BOSS_IMGURL']
+  get_url = "https://slack.com/api/conversations.replies?token=" + TOKEN_BEARER + "&channel=" + os.environ['S_CHID_BOTCDN'] + "&ts=" + os.environ['S_MSGTS_BOSS_IMGURL']
   get_head = {"Content-type": "application/json; charset=UTF-8;"}
   get_data = requests.get(get_url, headers=get_head)
   get_dic = json.loads(get_data.text)
