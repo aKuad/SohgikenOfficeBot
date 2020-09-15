@@ -20,12 +20,14 @@ def boss_list(TOKEN_BEARER, datas):
   get_dic = json.loads(get_data.text)
 
   ## Process received string
+  if get_dic
   var_atlist = []
   var_cdlist = []
-  for stt_dcpart in get_dic["messages"]:
-    if stt_dcpart["thread_ts"] == os.environ['S_MSGTS_BOSS_TEXT'] and stt_dcpart["ts"] != os.environ['S_MSGTS_BOSS_TEXT']:
-      var_atlist.append(stt_dcpart["text"].split("\n", 1)[0])
-      var_cdlist.append(stt_dcpart["text"].split("\n", 1)[1])
+  if get_dic["ok"] == True:
+    for stt_dcpart in get_dic["messages"]:
+      if stt_dcpart["thread_ts"] == os.environ['S_MSGTS_BOSS_TEXT'] and stt_dcpart["ts"] != os.environ['S_MSGTS_BOSS_TEXT']:
+        var_atlist.append(stt_dcpart["text"].split("\n", 1)[0])
+        var_cdlist.append(stt_dcpart["text"].split("\n", 1)[1])
 
 
   # Branch with cause of death count is 0 or not
