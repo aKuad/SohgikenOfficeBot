@@ -26,11 +26,11 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
 
   ## Process received string
   var_atlist = []
-  var_rslist = []
+  var_cdlist = []
   for stt_dcpart in get_dic["messages"]:
     if stt_dcpart["thread_ts"] == os.environ['S_MSGTS_BOSS_TEXT'] and stt_dcpart["ts"] != os.environ['S_MSGTS_BOSS_TEXT']:
       var_atlist.append(stt_dcpart["text"].split("\n", 1)[0])
-      var_rslist.append(stt_dcpart["text"].split("\n", 1)[1])
+      var_cdlist.append(stt_dcpart["text"].split("\n", 1)[1])
 
 
   # Get image url list
@@ -47,6 +47,34 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
       var_iulist.append(stt_dcpart["files"][0]["url_private"])
 
 
+  # Branch with cause of death count is 0 or not
+  ## When cause count is 0
+  if len(var_cdlist) == 0:
+    # Make & post message
+    post_text = ""
+    post_url = "https://slack.com/api/chat.postEphemeral"
+    post_body = {
+      "channel": datas["channel_id"],
+      "user": datas["user_id"],
+      "as_user": True,
+      "text": "",
+      "attachments": [
+        {
+          "color": "warning",
+          "text": "No items for cause of death list.",
+          "fields": [
+            { "title": "To add cause of death:", "value": "`/boss add <string>`", "short": False },
+            { "title": "To see more help:", "value": "`/boss --help`", "short": False },
+          ],
+          "footer": "SohgikenOfficeBot `/boss`"
+        }
+      ]
+    }
+    stt_result = requests.post(post_url, headers=post_head, json=post_body)
+    print(stt_result.text)
+    return
+
+
   # Argument check - Branch with argumeni is exist or not
   ## When argument is exist
   if var_intext != "":
@@ -56,8 +84,8 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
       int(var_intext)
       # Branch with index is exist or not
       ## When exist index entered
-      if 0 < int(var_intext) and int(var_intext) <= len(var_rslist):
-        post_text = var_rslist[int(var_intext)]
+      if 0 < int(var_intext) and int(var_intext) <= len(var_cdlist):
+        post_text = var_cdlist[int(var_intext)]
         post_foot = var_atlist[int(var_intext)]
         post_imgu = var_iulist[random.randint(0, len(var_iulist) - 1)]
       ## When not exist index entered
@@ -85,8 +113,8 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
         stt_result = requests.post(post_url, headers=post_head, json=post_body)
         print(stt_result.text)
 
-        # Choice send reason and image in random
-        post_text = var_rslist[random.randint(0, len(var_rslist) - 1)]
+        # Choice send cause of death and image in random
+        post_text = var_cdlist[random.randint(0, len(var_cdlist) - 1)]
         post_foot = var_atlist[random.randint(0, len(var_atlist) - 1)]
         post_imgu = var_iulist[random.randint(0, len(var_iulist) - 1)]
 
@@ -115,15 +143,15 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
       stt_result = requests.post(post_url, headers=post_head, json=post_body)
       print(stt_result.text)
 
-      # Choice send reason and image in random
-      post_text = var_rslist[random.randint(0, len(var_rslist) - 1)]
+      # Choice send cause of death and image in random
+      post_text = var_cdlist[random.randint(0, len(var_cdlist) - 1)]
       post_foot = var_atlist[random.randint(0, len(var_atlist) - 1)]
       post_imgu = var_iulist[random.randint(0, len(var_iulist) - 1)]
 
   ## When argument is not exist
   else:
-    # Choice send reason and image in random
-    post_text = var_rslist[random.randint(0, len(var_rslist) - 1)]
+    # Choice send cause of death and image in random
+    post_text = var_cdlist[random.randint(0, len(var_cdlist) - 1)]
     post_foot = var_atlist[random.randint(0, len(var_atlist) - 1)]
     post_imgu = var_iulist[random.randint(0, len(var_iulist) - 1)]
 

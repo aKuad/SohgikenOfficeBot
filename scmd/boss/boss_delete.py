@@ -82,11 +82,11 @@ def boss_delete(TOKEN_BEARER, datas, var_intext):
   get_dic = json.loads(get_data.text)
 
   ## Process received string
-  var_rslist = []
+  var_cdlist = []
   var_tslist = []
   for stt_dcpart in get_dic["messages"]:
     if stt_dcpart["thread_ts"] == os.environ['S_MSGTS_BOSS_TEXT'] and data_dic_part["ts"] != os.environ['S_MSGTS_BOSS_TEXT']:
-      var_rslist.append(stt_dcpart["text"].split("\n", 1)[1])
+      var_cdlist.append(stt_dcpart["text"].split("\n", 1)[1])
       var_tslist.append(stt_dcpart["ts"])
 
 
@@ -112,7 +112,7 @@ def boss_delete(TOKEN_BEARER, datas, var_intext):
         {
           "color": "good",
           "title": "Success to delete",
-          "text": "Deleted '" + var_intext + ". " + var_rslist[int(var_intext) - 1] + "'",
+          "text": "Deleted '" + var_intext + ". " + var_cdlist[int(var_intext) - 1] + "'",
           "footer": "SohgikenOfficeBot `/boss`"
         }
       ]
