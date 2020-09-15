@@ -20,7 +20,6 @@ def boss_list(TOKEN_BEARER, datas):
   get_dic = json.loads(get_data.text)
 
   ## Process received string
-  if get_dic
   var_atlist = []
   var_cdlist = []
   if get_dic["ok"] == True:
