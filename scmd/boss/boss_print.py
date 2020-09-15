@@ -43,7 +43,7 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
 
   ## Process received string
   var_iulist = []
-  for stt_dcpart in data_dic["messages"]:
+  for stt_dcpart in get_dic["messages"]:
     if stt_dcpart["thread_ts"] == os.environ['S_MSGTS_BOSS_IMGURL'] and stt_dcpart["ts"] != os.environ['S_MSGTS_BOSS_IMGURL']:
       var_iulist.append(stt_dcpart["files"][0]["url_private"])
 
