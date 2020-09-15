@@ -1,7 +1,6 @@
+# coding=UTF-8
 #
 # boss/boss_add.py
-#
-# -*- coding: UTF-8 -*-
 #
 
 # Module import
