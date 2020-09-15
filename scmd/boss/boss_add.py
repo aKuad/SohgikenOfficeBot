@@ -22,8 +22,9 @@ def boss_add(TOKEN_BEARER, datas, var_intext):
     # Make & post posted cause to cdn channel
     post_url = "https://slack.com/api/chat.postMessage"
     post_body = {
-      "channel": datas["channel_id"],
-      "text": "<@" + datas["user_id"] + "|" + datas["user_name"] + ">\n" + var_intext
+      "channel": os.environ['S_CHID_BOTCDN'],
+      "text": "<@" + datas["user_id"] + "|" + datas["user_name"] + ">\n" + var_intext,
+      "ts": os.environ['S_MSGTS_BOSS_TEXT']
     }
     stt_result = requests.post(post_url, headers=post_head, json=post_body)
     print(stt_result.text)
