@@ -86,7 +86,7 @@ def boss(TOKEN_BEARER, datas):
 
   # Branch with sub command has run or not
   if flag_subcHasRun == False:
-    boss_print.boss_print(TOKEN_BEARER, datas, flag_ephe, flag_smpl, flag_bimg)
+    boss_print.boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
 
 
   # Quit
