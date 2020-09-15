@@ -10,7 +10,7 @@ import re
 import sys
 
 ## Local modules
-sys.path.append("./boss")
+sys.path.append("./scmd/boss")
 import boss_help
 import boss_add
 import boss_list
