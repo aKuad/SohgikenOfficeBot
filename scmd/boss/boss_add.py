@@ -38,7 +38,7 @@ def boss_add(TOKEN_BEARER, datas, var_intext):
         {
           "color": "good",
           "title": "Success to add",
-          "text": "Added '" + var_intext + "'"
+          "text": "Added '" + var_intext + "'",
           "footer": "SohgikenOfficeBot `/boss`"
         }
       ]

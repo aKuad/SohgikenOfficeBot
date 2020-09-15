@@ -111,7 +111,7 @@ def boss_delete(TOKEN_BEARER, datas, var_intext):
         {
           "color": "good",
           "title": "Success to delete",
-          "text": "Deleted '" + var_intext + ". " + var_rslist[int(var_intext) - 1] + "'"
+          "text": "Deleted '" + var_intext + ". " + var_rslist[int(var_intext) - 1] + "'",
           "footer": "SohgikenOfficeBot `/boss`"
         }
       ]
