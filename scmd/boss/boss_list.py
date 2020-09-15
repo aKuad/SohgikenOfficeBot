@@ -22,7 +22,6 @@ def boss_list(TOKEN_BEARER, datas):
   ## Process received string
   var_atlist = []
   var_cdlist = []
-  print("debug_getdata: " + get_data.text) # debug
   if get_dic["ok"] == True:
     for stt_dcpart in get_dic["messages"]:
       if stt_dcpart["thread_ts"] == os.environ['S_MSGTS_BOSS_TEXT'] and stt_dcpart["ts"] != os.environ['S_MSGTS_BOSS_TEXT']:
