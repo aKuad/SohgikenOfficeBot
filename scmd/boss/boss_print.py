@@ -86,8 +86,8 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
       # Branch with index is exist or not
       ## When exist index entered
       if 0 < int(var_intext) and int(var_intext) <= len(var_cdlist):
-        post_text = var_cdlist[int(var_intext)]
-        post_foot = var_atlist[int(var_intext)]
+        post_text = var_cdlist[int(var_intext) - 1]
+        post_foot = var_atlist[int(var_intext) - 1]
         post_imgu = var_iulist[random.randint(0, len(var_iulist) - 1)]
       ## When not exist index entered
       else:
