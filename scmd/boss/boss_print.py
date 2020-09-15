@@ -183,7 +183,6 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
     post_uico = get_dic["user"]["profile"]["image_72"]
 
     # Make message
-    post_url = "https://slack.com/api/chat.postMessage"
     post_body = {
       "channel": datas["channel_id"],
       "as_user": True,
@@ -213,7 +212,6 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
     post_uico = get_dic["user"]["profile"]["image_72"]
 
     # Make message
-    post_url = "https://slack.com/api/chat.postMessage"
     post_body = {
       "channel": datas["channel_id"],
       "as_user": True,
