@@ -92,7 +92,7 @@ def echo(TOKEN_BEARER, datas):
             },
             {
               "type": "section",
-              "text": { "type": "mrkdwn", "text": "`-s --simple` : Print without ritch decoration" }
+              "text": { "type": "mrkdwn", "text": "`-s` `--simple` : Print without ritch decoration" }
             }
           ]
         },
