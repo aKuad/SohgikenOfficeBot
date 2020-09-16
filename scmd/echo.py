@@ -14,7 +14,7 @@ def echo(TOKEN_BEARER, datas):
   ## Variables initialize
   flag_help = False
   flag_smpl = False
-  send_text = datas["text"]
+  post_text = datas["text"]
 
   if datas["text"] == "":
     # When empty imput, print help
@@ -24,12 +24,12 @@ def echo(TOKEN_BEARER, datas):
     for stt_txpart in datas["text"].split():
       if stt_txpart == "--help":
         flag_help = True
-        send_text = re.sub("^ *--help", "", send_text)
-        send_text = re.sub("^ *", "", send_text)
+        post_text = re.sub("^ *--help", "", post_text)
+        post_text = re.sub("^ *", "", post_text)
       elif stt_txpart == "-s" or stt_txpart == "--simple":
         flag_smpl = True
-        send_text = re.sub("^ *(-s|--simple)", "", send_text)
-        send_text = re.sub("^ *", "", send_text)
+        post_text = re.sub("^ *(-s|--simple)", "", post_text)
+        post_text = re.sub("^ *", "", post_text)
       else :
         break
 
@@ -87,14 +87,14 @@ def echo(TOKEN_BEARER, datas):
     post_body = {
       "channel": datas["channel_id"],
       "as_user": True,
-      "text": send_text
+      "text": post_text
     }
   else :
     # Echo with ritch decoration
     ## Get user icon url
-    recv_raw = requests.get("https://slack.com/api/users.info?token=" + TOKEN_BEARER + "&user=" + datas["user_id"])
-    recv_json = json.loads(recv_raw.text)
-    send_uico = recv_json["user"]["profile"]["image_72"]
+    get_raw = requests.get("https://slack.com/api/users.info?token=" + TOKEN_BEARER + "&user=" + datas["user_id"])
+    get_dic = json.loads(get_raw.text)
+    post_uico = get_dic["user"]["profile"]["image_72"]
 
     ## Make post message
     post_url = "https://slack.com/api/chat.postMessage"
@@ -105,9 +105,9 @@ def echo(TOKEN_BEARER, datas):
       "attachments": [
         {
           "color": "good",
-          "author_icon": send_uico,
+          "author_icon": post_uico,
           "author_name": "<@" + datas["user_id"] + "|" + datas["user_name"] + ">",
-          "text": send_text,
+          "text": post_text,
           "footer": "SohgikenOfficeBot `/echo`"
         }
       ]
