@@ -119,6 +119,7 @@ def echo(TOKEN_BEARER, datas):
       # Make & post message
       post_body = {
         "channel": datas["channel_id"],
+        "user": datas["user_id"],
         "as_user": True,
         "text": post_text
       }
@@ -134,6 +135,7 @@ def echo(TOKEN_BEARER, datas):
       # Make & post message
       post_body = {
         "channel": datas["channel_id"],
+        "user": datas["user_id"],
         "as_user": True,
         "text": "",
         "attachments": [
