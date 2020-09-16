@@ -172,7 +172,7 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
     post_body = {
       "channel": datas["channel_id"],
       "as_user": True,
-      "text": "今日のボス: " + post_text
+      "text": u"今日のボス: " + post_text
     }
 
   ## Print with normal size image
