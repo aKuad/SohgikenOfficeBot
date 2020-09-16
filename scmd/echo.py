@@ -65,8 +65,6 @@ def echo(TOKEN_BEARER, datas):
       "text": "",
       "attachments": [
         {
-          "title": "Help for `/echo`",
-          "text": "",
           "blocks": [
             {
               "type": "header",
@@ -74,11 +72,11 @@ def echo(TOKEN_BEARER, datas):
             },
             {
               "type": "section",
-              "text": { "type": "plain_text", "text": "Print a entered string", "emoji": True }
+              "text": { "type": "mrkdwn", "text": "Print a entered string" }
             },
             {
               "type": "section",
-              "text": { "type": "plain_text", "text": "Useage: `/echo [options] <string>`", "emoji": True }
+              "text": { "type": "mrkdwn", "text": "Useage: `/echo [options] <string>`" }
             },
             {
               "type": "header",
@@ -86,7 +84,7 @@ def echo(TOKEN_BEARER, datas):
             },
             {
               "type": "section",
-              "text": { "type": "plain_text", "text": "  `--help` : Print this manual", "emoji": True }
+              "text": { "type": "mrkdwn", "text": "`--help` : Print this manual" }
             },
             {
               "type": "section",
@@ -94,9 +92,11 @@ def echo(TOKEN_BEARER, datas):
             },
             {
               "type": "section",
-              "text": { "type": "plain_text", "text": "  `-s --simple` : Print without ritch decoration", "emoji": True }
+              "text": { "type": "mrkdwn", "text": "`-s --simple` : Print without ritch decoration" }
             }
-          ],
+          ]
+        },
+        {
           "footer": "SohgikenOfficeBot `/echo`"
         }
       ]
