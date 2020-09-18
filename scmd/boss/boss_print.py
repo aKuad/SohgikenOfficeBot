@@ -102,7 +102,7 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
             {
               "color": "warning",
               "title": "Argument can't accepted",
-              "text": "Warning - Invalid index '" + var_intext + "'. It is not exist index..",
+              "text": "Warning - Invalid index '" + var_intext + "'. It is not exist index.",
               "fields": [
                 { "title": "Useage:", "value": "`/boss [options] [index]`", "short": False },
                 { "title": "To see more help:", "value": "`/boss --help`", "short": False },
@@ -199,6 +199,7 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
         },
         {
           "color": "danger",
+          "text": "",
           "footer": "SohgikenOfficeBot `/boss`"
         }
       ]
@@ -228,6 +229,7 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
         },
         {
           "color": "danger",
+          "text": "",
           "footer": "SohgikenOfficeBot `/boss`"
         }
       ]

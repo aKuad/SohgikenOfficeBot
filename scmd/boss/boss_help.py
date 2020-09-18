@@ -76,6 +76,7 @@ def boss_help(TOKEN_BEARER, datas):
         ],
       },
       {
+        "text": "",
         "footer": "SohgikenOfficeBot `/boss`"
       }
     ]
