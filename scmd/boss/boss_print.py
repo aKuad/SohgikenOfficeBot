@@ -180,7 +180,7 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
 
   # Branch with ephemeral option enable or not
   ## When ephemeral option is enable
-  if True:
+  if flag_ephe == True:
     post_url = "https://slack.com/api/chat.postEphemeral"
   ## When ephemeral option is not enable
   else:
@@ -192,6 +192,7 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
     # Make message
     post_body = {
       "channel": datas["channel_id"],
+      "user": datas["user_id"],
       "as_user": True,
       "text": u"今日のボス: " + post_text
     }
@@ -206,6 +207,7 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
     # Make message
     post_body = {
       "channel": datas["channel_id"],
+      "user": datas["user_id"],
       "as_user": True,
       "text": "",
       "attachments": [
@@ -236,6 +238,7 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
     # Make message
     post_body = {
       "channel": datas["channel_id"],
+      "user": datas["user_id"],
       "as_user": True,
       "text": "",
       "attachments": [
