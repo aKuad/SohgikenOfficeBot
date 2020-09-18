@@ -12,6 +12,7 @@ import sys
 ## Local modules
 sys.path.append("./scmd")
 import echo
+import boss
 
 
 # App object make and token load
@@ -46,6 +47,25 @@ def wh_scmd_echo():
     "text": request.form.get("text")
   }
   echo.echo(TOKEN_BEARER, datas)
+  return ''
+
+## Slash command '/boss'
+@app.route("/scmd/boss", methods=['POST'])
+def wh_scmd_boss():
+  print("---- Slash command 'boss' has run ----")
+  print(request.headers)
+  print("body: %s" % request.get_data())
+
+  if TOKEN_VERIFY != request.form.get("token"):
+    return '''{"ok": false, "message": "Invalid token"}''', 401
+
+  datas = {
+    "channel_id": request.form.get("channel_id"),
+    "user_id": request.form.get("user_id"),
+    "user_name": request.form.get("user_name"),
+    "text": request.form.get("text")
+  }
+  boss.boss(TOKEN_BEARER, datas)
   return ''
 
 ## 404 error response
