@@ -86,9 +86,30 @@ def boss_print(TOKEN_BEARER, datas, var_intext, flag_ephe, flag_smpl, flag_bimg)
       # Branch with index is exist or not
       ## When exist index entered
       if 0 < int(var_intext) and int(var_intext) <= len(var_cdlist):
+        # Make & post warning message
+        post_url = "https://slack.com/api/chat.postEphemeral"
+        post_body = {
+          "channel": datas["channel_id"],
+          "user": datas["user_id"],
+          "as_user": True,
+          "text": "",
+          "attachments": [
+            {
+              "color": "good",
+              "title": "Index specifying accepted",
+              "text": "Will choice index: " + var_intext,
+              "footer": "SohgikenOfficeBot `/boss`"
+            }
+          ]
+        }
+        stt_result = requests.post(post_url, headers=post_head, json=post_body)
+        print(stt_result.text)
+
+        # Choice send cause of death in selected, and image in random
         post_text = var_cdlist[int(var_intext) - 1]
         post_foot = var_atlist[int(var_intext) - 1]
         post_imgu = var_iulist[random.randint(0, len(var_iulist) - 1)]
+
       ## When not exist index entered
       else:
         # Make & post warning message
