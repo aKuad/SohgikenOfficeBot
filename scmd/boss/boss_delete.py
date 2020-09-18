@@ -100,6 +100,8 @@ def boss_delete(TOKEN_BEARER, datas, var_intext):
       "as_user": True,
       "ts": var_tslist[int(var_intext) - 1]
     }
+    stt_result = requests.post(post_url, headers=post_head, json=post_body)
+    print(stt_result.text)
 
     # Make & post success message to user
     post_url = "https://slack.com/api/chat.postEphemeral"
