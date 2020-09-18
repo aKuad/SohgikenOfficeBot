@@ -57,7 +57,7 @@ def boss(TOKEN_BEARER, datas):
       elif stt_txpart == "delete" or stt_txpart == "d":
         var_intext = re.sub("^ *(delete|d)", "", var_intext)
         var_intext = re.sub("^ *", "", var_intext)
-        boss_result.boss_result(TOKEN_BEARER, datas, var_intext)
+        boss_delete.boss_delete(TOKEN_BEARER, datas, var_intext)
         flag_subcHasRun = True
         break
 
