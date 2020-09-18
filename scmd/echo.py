@@ -97,6 +97,7 @@ def echo(TOKEN_BEARER, datas):
           ]
         },
         {
+          "text": "",
           "footer": "SohgikenOfficeBot `/echo`"
         }
       ]
