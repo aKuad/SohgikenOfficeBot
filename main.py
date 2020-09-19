@@ -74,9 +74,10 @@ def wh_sint():
   print("---- Interactive action has run ----")
   print(request.headers)
   print("body: %s" % request.get_data())
+  print("payload: %s" % request.form.get("payload"))
 
-  if TOKEN_VERIFY != request.form.get("token"):
-    return '''{"ok": false, "message": "Invalid token"}''', 401
+  #if TOKEN_VERIFY != request.form.get("token"):
+  #  return '''{"ok": false, "message": "Invalid token"}''', 401
 
   return ''
 
