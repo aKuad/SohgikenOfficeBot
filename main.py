@@ -52,6 +52,7 @@ def wh_scmd_echo():
   print(request.form.listvalues())
   print(request.form.items())
   print(request.form.keys())
+  print(request.form.to_dict())
 
   echo.echo(TOKEN_BEARER, datas)
   return ''
