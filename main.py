@@ -6,6 +6,7 @@
 # Module import
 ## Standard & Extension modules
 from flask import Flask, request
+import json
 import os
 import sys
 
@@ -73,11 +74,11 @@ def wh_scmd_boss():
 def wh_sint():
   print("---- Interactive action has run ----")
   print(request.headers)
-  print("body: %s" % request.get_data())
-  print("payload: %s" % request.form.get("payload"))
+  print("bosy-payload: %s" % request.form.get("payload"))
+  datas = json.loads(request.form.get("payload"))
 
-  #if TOKEN_VERIFY != request.form.get("token"):
-  #  return '''{"ok": false, "message": "Invalid token"}''', 401
+  if TOKEN_VERIFY != datas["token"]:
+    return '''{"ok": false, "message": "Invalid token"}''', 401
 
   return ''
 
