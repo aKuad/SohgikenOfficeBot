@@ -68,6 +68,18 @@ def wh_scmd_boss():
   boss.boss(TOKEN_BEARER, datas)
   return ''
 
+## Interactive process
+@app.route("/sint", methods=['POST'])
+def wh_sint():
+  print("---- Interactive action has run ----")
+  print(request.headers)
+  print("body: %s" % request.get_data())
+
+  if TOKEN_VERIFY != request.form.get("token"):
+    return '''{"ok": false, "message": "Invalid token"}''', 401
+
+  return ''
+
 ## 404 error response
 @app.errorhandler(404)
 def er_404(e):
