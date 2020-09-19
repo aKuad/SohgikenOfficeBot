@@ -50,6 +50,8 @@ def wh_scmd_echo():
   print(request.make_form_data_parser())
   print(request.form.values())
   print(request.form.listvalues())
+  print(request.form.items())
+  print(request.form.keys())
 
   echo.echo(TOKEN_BEARER, datas)
   return ''
