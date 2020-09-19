@@ -40,20 +40,7 @@ def wh_scmd_echo():
   if TOKEN_VERIFY != request.form.get("token"):
     return '''{"ok": false, "message": "Invalid token"}''', 401
 
-  datas = {
-    "channel_id": request.form.get("channel_id"),
-    "user_id": request.form.get("user_id"),
-    "user_name": request.form.get("user_name"),
-    "text": request.form.get("text")
-  }
-
-  print(request.make_form_data_parser())
-  print(request.form.values())
-  print(request.form.listvalues())
-  print(request.form.items())
-  print(request.form.keys())
-  print(request.form.to_dict())
-
+  datas = request.form.to_dict()
   echo.echo(TOKEN_BEARER, datas)
   return ''
 
@@ -67,12 +54,7 @@ def wh_scmd_boss():
   if TOKEN_VERIFY != request.form.get("token"):
     return '''{"ok": false, "message": "Invalid token"}''', 401
 
-  datas = {
-    "channel_id": request.form.get("channel_id"),
-    "user_id": request.form.get("user_id"),
-    "user_name": request.form.get("user_name"),
-    "text": request.form.get("text")
-  }
+  datas = request.form.to_dict()
   boss.boss(TOKEN_BEARER, datas)
   return ''
 
