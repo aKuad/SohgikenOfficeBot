@@ -46,6 +46,11 @@ def wh_scmd_echo():
     "user_name": request.form.get("user_name"),
     "text": request.form.get("text")
   }
+
+  print(request.make_form_data_parser())
+  print(request.form.values())
+  print(request.form.listvalues())
+
   echo.echo(TOKEN_BEARER, datas)
   return ''
 
