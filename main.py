@@ -80,7 +80,7 @@ def wh_sint():
   # Received request view and process
   print("---- Interactive action has run ----")
   print(request.headers)
-  print("bosy-payload: %s" % request.form.get("payload"))
+  print("body-payload: %s" % request.form.get("payload"))
   datas = json.loads(request.form.get("payload"))
 
   # Token verifing
@@ -97,8 +97,12 @@ def wh_sint():
     return ''
 
   # Branch with 'callback_id'
-  if cbid == "sint_formgo":
+  if cbid == "scmd_formgo":
     formgo.formgo(TOKEN_BEARER, datas)
+  elif cbid == "sint_formgo_build":
+    pass
+  elif cbid == "sint_formgo_post":
+    pass
 
   # Quit
   return ''

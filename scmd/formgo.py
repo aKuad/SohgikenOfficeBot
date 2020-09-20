@@ -15,7 +15,7 @@ def formgo(TOKEN_BEARER, datas):
   post_body = {
     "trigger_id": datas["trigger_id"],
     "view": {
-      "callback_id": "sint_formgo",
+      "callback_id": "sint_formgo_build",
       "title": { "type": "plain_text", "text": u"新規フォーム作成", "emoji": True },
       "type": "modal",
       "submit": { "type": "plain_text", "text": u":postbox: フォーム作成", "emoji": True },
