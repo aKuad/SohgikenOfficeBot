@@ -14,6 +14,7 @@ import sys
 sys.path.append("./scmd")
 import echo
 import boss
+import formgo
 
 
 # App object make and token load
@@ -59,6 +60,20 @@ def wh_scmd_boss():
   boss.boss(TOKEN_BEARER, datas)
   return ''
 
+## Slash command '/formgo'
+@app.route("/scmd/formgo", methods=['POST'])
+def wh_scmd_formgo():
+  print("---- Slash command 'formgo' has run ----")
+  print(request.headers)
+  print("body: %s" % request.get_data())
+
+  if TOKEN_VERIFY != request.form.get("token"):
+    return '''{"ok": false, "message": "Invalid token"}''', 401
+
+  datas = request.form.to_dict()
+  formgo.formgo(TOKEN_BEARER, datas)
+  return ''
+
 ## Interactive process
 @app.route("/sint", methods=['POST'])
 def wh_sint():
@@ -73,8 +88,8 @@ def wh_sint():
     return '''{"ok": false, "message": "Invalid token"}''', 401
 
   # Branch with 'callback_id'
-  #if datas["callback_id"] == "scmd_boss":
-  #  pass
+  if datas["callback_id"] == "sint_formgo":
+    pass
 
   # Quit
   return ''
