@@ -6,6 +6,7 @@
 # Module import
 ## Standard & Extension modules
 from flask import Flask, request
+import json
 import os
 import sys
 
@@ -56,6 +57,26 @@ def wh_scmd_boss():
 
   datas = request.form.to_dict()
   boss.boss(TOKEN_BEARER, datas)
+  return ''
+
+## Interactive process
+@app.route("/sint", methods=['POST'])
+def wh_sint():
+  # Received request view and process
+  print("---- Interactive action has run ----")
+  print(request.headers)
+  print("bosy-payload: %s" % request.form.get("payload"))
+  datas = json.loads(request.form.get("payload"))
+
+  # Token verifing
+  if TOKEN_VERIFY != datas["token"]:
+    return '''{"ok": false, "message": "Invalid token"}''', 401
+
+  # Branch with 'callback_id'
+  #if datas["callback_id"] == "scmd_boss":
+  #  pass
+
+  # Quit
   return ''
 
 ## 404 error response
