@@ -15,11 +15,12 @@ def formgo(TOKEN_BEARER, datas):
   post_body = {
     "trigger_id": datas["trigger_id"],
     "view": {
-      "callback_id": "scmd_formgo",
-      "title": u"新規フォーム作成",
+      "callback_id": "sint_formgo",
+      "title": { "type": "plain_text", "text": u"新規フォーム作成", "emoji": True },
       "type": "modal",
-      "submit": u":postbox: フォーム作成",
+      "submit": { "type": "plain_text", "text": u":postbox: フォーム作成", "emoji": True },
       "close": { "type": "plain_text", "text": u":x: キャンセル", "emoji": True },
+      "notify_on_close", False,
       "blocks": [
         {
           "type": "input",
