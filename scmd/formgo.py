@@ -20,7 +20,7 @@ def formgo(TOKEN_BEARER, datas):
       "type": "modal",
       "submit": { "type": "plain_text", "text": u":postbox: フォーム作成", "emoji": True },
       "close": { "type": "plain_text", "text": u":x: キャンセル", "emoji": True },
-      "notify_on_close", False,
+      "notify_on_close": False,
       "blocks": [
         {
           "type": "input",
