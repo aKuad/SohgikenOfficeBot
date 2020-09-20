@@ -12,9 +12,12 @@ import sys
 
 ## Local modules
 sys.path.append("./scmd")
+sys.path.append("./sint")
 import echo
 import boss
 import formgo
+import formgo_make
+import formgo_post
 
 
 # App object make and token load
@@ -99,10 +102,10 @@ def wh_sint():
   # Branch with 'callback_id'
   if cbid == "scmd_formgo":
     formgo.formgo(TOKEN_BEARER, datas)
-  elif cbid == "sint_formgo_build":
-    pass
+  elif cbid == "sint_formgo_make":
+    formgo_make.formgo_make(TOKEN_BEARER, datas)
   elif cbid == "sint_formgo_post":
-    pass
+    formgo_post.formgo_post(TOKEN_BEARER, datas)
 
   # Quit
   return ''

@@ -9,13 +9,13 @@ import requests
 
 # Function define
 def formgo(TOKEN_BEARER, datas):
-  # Make & post message
+  # Make & post dialog
   post_head = {"Content-type": "application/json; charset=UTF-8;", "Authorization": "Bearer " + TOKEN_BEARER}
   post_url = "https://slack.com/api/views.open"
   post_body = {
     "trigger_id": datas["trigger_id"],
     "view": {
-      "callback_id": "sint_formgo_build",
+      "callback_id": "sint_formgo_make",
       "title": { "type": "plain_text", "text": u"新規フォーム作成", "emoji": True },
       "type": "modal",
       "submit": { "type": "plain_text", "text": u":postbox: フォーム作成", "emoji": True },
