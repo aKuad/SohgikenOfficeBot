@@ -14,6 +14,7 @@ import sys
 sys.path.append("./scmd")
 import echo
 import boss
+import formgo
 
 
 # App object make and token load
