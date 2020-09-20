@@ -87,9 +87,18 @@ def wh_sint():
   if TOKEN_VERIFY != datas["token"]:
     return '''{"ok": false, "message": "Invalid token"}''', 401
 
+  # Branch with payload type
+  if datas["type"] == "shortcut":
+    cbid = datas["callback_id"]
+  elif datas["type"] == "view_submission":
+    cbid = datas["view"]["callback_id"]
+  else:
+    print("Received type: " + datas["type"])
+    return ''
+
   # Branch with 'callback_id'
-  if datas["callback_id"] == "sint_formgo":
-    pass
+  if cbid == "sint_formgo":
+    formgo.formgo(TOKEN_BEARER, datas)
 
   # Quit
   return ''
