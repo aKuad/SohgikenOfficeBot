@@ -11,16 +11,16 @@ import requests
 def formgo(TOKEN_BEARER, datas):
   # Make & post message
   post_head = {"Content-type": "application/json; charset=UTF-8;", "Authorization": "Bearer " + TOKEN_BEARER}
-  post_url = "https://slack.com/api/dialog.open"
+  post_url = "https://slack.com/api/views.open"
   post_body = {
     "trigger_id": datas["trigger_id"],
-    "dialog": {
+    "view": {
       "callback_id": "scmd_formgo",
-      "title": { "type": "plain_text", "text": u"新規フォーム作成", "emoji": True },
+      "title": u"新規フォーム作成",
       "type": "modal",
-      "submit": { "type": "plain_text", "text": u":postbox: フォーム作成", "emoji": True },
+      "submit": u":postbox: フォーム作成",
       "close": { "type": "plain_text", "text": u":x: キャンセル", "emoji": True },
-      "elements": [
+      "blocks": [
         {
           "type": "input",
           "label": { "type": "plain_text", "text": u":label: フォームラベル", "emoji": True },
