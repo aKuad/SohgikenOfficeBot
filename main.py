@@ -15,6 +15,7 @@ sys.path.append("./scmd")
 import echo
 import boss
 import formgo
+import gikentips
 
 
 # App object make and token load
@@ -58,6 +59,20 @@ def wh_scmd_boss():
 
   datas = request.form.to_dict()
   boss.boss(TOKEN_BEARER, datas)
+  return ''
+
+## Slash command '/gikentips'
+@app.route("/scmd/gikentips", methods=['POST'])
+def wh_scmd_gikentips():
+  print("---- Slash command 'gikentips' has run ----")
+  print(request.headers)
+  print("body: %s" % request.get_data())
+
+  if TOKEN_VERIFY != request.form.get("token"):
+    return '''{"ok": false, "message": "Invalid token"}''', 401
+
+  datas = request.form.to_dict()
+  gikentips.gikentips(TOKEN_BEARER, datas)
   return ''
 
 ## Slash command '/formgo'
