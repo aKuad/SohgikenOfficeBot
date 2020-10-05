@@ -84,10 +84,14 @@ def boss_delete(TOKEN_BEARER, datas, var_intext):
   ## Process received string
   var_cdlist = []
   var_tslist = []
-  for stt_dcpart in get_dic["messages"]:
-    if stt_dcpart["thread_ts"] == os.environ['S_MSGTS_BOSS_TEXT'] and stt_dcpart["ts"] != os.environ['S_MSGTS_BOSS_TEXT']:
-      var_cdlist.append(stt_dcpart["text"].split("\n", 1)[1])
-      var_tslist.append(stt_dcpart["ts"])
+  if get_dic["ok"] == True:
+    try:
+      for stt_dcpart in get_dic["messages"]:
+        if stt_dcpart["thread_ts"] == os.environ['S_MSGTS_BOSS_TEXT'] and stt_dcpart["ts"] != os.environ['S_MSGTS_BOSS_TEXT']:
+          var_cdlist.append(stt_dcpart["text"].split("\n", 1)[1])
+          var_tslist.append(stt_dcpart["ts"])
+    except:
+      pass
 
 
   # Argument check (is exist index)
