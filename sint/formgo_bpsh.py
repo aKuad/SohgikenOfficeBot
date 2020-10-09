@@ -8,7 +8,7 @@ import requests
 
 
 # Function define
-def formgo_post(TOKEN_BEARER, datas):
+def formgo_bpsh(TOKEN_BEARER, datas):
   if datas["actions"][0]["value"] == "answer":
     print("## answer pushed ##")
     pass
