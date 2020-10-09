@@ -15,7 +15,7 @@ def gikentips_list(TOKEN_BEARER, datas):
   # Get cause list
   ## Send request and receive
   get_url = "https://slack.com/api/conversations.replies?token=" + TOKEN_BEARER + "&channel=" + os.environ['S_CHID_BOTCDN'] + "&ts=" + os.environ['S_MSGTS_GTIPS']
-  get_head = {"Content-type": "application/json; charset=UTF-8;"}
+  get_head = {"Content-type": "application/x-www-form-urlencoded; charset=UTF-8;"}
   get_data = requests.get(get_url, headers=get_head)
   get_dic = json.loads(get_data.text)
 
