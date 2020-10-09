@@ -32,7 +32,7 @@ def formgo(TOKEN_BEARER, datas):
             "type": "plain_text_input",
             "multiline": False,
             "placeholder": { "type": "plain_text", "text": u"フォームラベルを入力" },
-            "initial_value": "Form - " + datetime.datetime.fromtimestamp(datas["action_ts"]).strftime("%m / %d")
+            "initial_value": "Form - " + datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).strftime("%m / %d")
           },
           "hint": { "type": "plain_text", "text": u"このテキストは、複数のフォームの判別に用いられます", "emoji": True },
           "optional": False
