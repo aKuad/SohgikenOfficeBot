@@ -5,6 +5,7 @@
 
 # Module import
 import requests
+import datetime
 
 
 # Function define
@@ -30,7 +31,8 @@ def formgo(TOKEN_BEARER, datas):
             "action_id": "formgo_make_label",
             "type": "plain_text_input",
             "multiline": False,
-            "placeholder": { "type": "plain_text", "text": u"フォームラベルを入力" }
+            "placeholder": { "type": "plain_text", "text": u"フォームラベルを入力" },
+            "initial_value": "Form - " + datetime.datetime.fromtimestamp(datas["action_ts"]).strftime("%m / %d")
           },
           "hint": { "type": "plain_text", "text": u"このテキストは、複数のフォームの判別に用いられます", "emoji": True },
           "optional": False
@@ -48,7 +50,7 @@ def formgo(TOKEN_BEARER, datas):
             "options": [
               {
                 "text": { "type": "plain_text", "text": u":thermometer: 健康状態調査フォーム", "emoji": True },
-                "value": "value-0"
+                "value": "formgo_type_health"
               }
             ]
           },

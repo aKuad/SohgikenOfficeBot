@@ -17,7 +17,8 @@ import echo
 import boss
 import formgo
 import formgo_make
-import formgo_post
+import formgo_bpsh
+import formgo_sbmt
 
 
 # App object make and token load
@@ -95,6 +96,8 @@ def wh_sint():
     cbid = datas["callback_id"]
   elif datas["type"] == "view_submission":
     cbid = datas["view"]["callback_id"]
+  elif datas["type"] == "block_actions":
+    cbid = datas["actions"][0]["block_id"]
   else:
     print("Received type: " + datas["type"])
     return ''
@@ -104,8 +107,10 @@ def wh_sint():
     formgo.formgo(TOKEN_BEARER, datas)
   elif cbid == "sint_formgo_make":
     formgo_make.formgo_make(TOKEN_BEARER, datas)
-  elif cbid == "sint_formgo_post":
-    formgo_post.formgo_post(TOKEN_BEARER, datas)
+  elif cbid == "sint_formgo_bpsh":
+    formgo_bpsh.formgo_bpsh(TOKEN_BEARER, datas)
+  elif cbid == "sint_formgo_sbmt":
+    formgo_sbmt.formgo_sbmt(TOKEN_BEARER, datas)
 
   # Quit
   return ''
