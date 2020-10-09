@@ -21,7 +21,7 @@ def formgo_make(TOKEN_BEARER, datas):
 
   ## Make user list
   get_url = "https://slack.com/api/users.list?token=" + TOKEN_BEARER
-  get_head = { "Content-type": "application/json; charset=UTF-8;" }
+  get_head = { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8;" }
   get_data = requests.get(get_url, headers=get_head)
   get_dict = json.loads(get_data.text)
   var_tgus = ""
@@ -33,7 +33,7 @@ def formgo_make(TOKEN_BEARER, datas):
 
   ## Make & post message
   post_url = "https://slack.com/api/chat.postMessage"
-  post_head = { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8;", "Authorization": "Bearer " + TOKEN_BEARER }
+  post_head = { "Content-type": "application/json; charset=UTF-8;", "Authorization": "Bearer " + TOKEN_BEARER }
   post_body = {
     "as_user": True,
     "text": "",
