@@ -1,6 +1,6 @@
 # coding=UTF-8
 #
-# formgo_post.py
+# formgo_bpsh.py
 #
 
 # Module import
