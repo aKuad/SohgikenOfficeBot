@@ -154,7 +154,7 @@ def formgo_make(TOKEN_BEARER, datas):
   get_head = { "Content-type": "application/json; charset=UTF-8;", "Authorization": "Bearer " + TOKEN_BEARER }
   for stt_uid in datas["view"]["state"]["values"]["formgo_make_member"]["formgo_make_member"]["selected_users"]:
     get_body = { "users": stt_uid }
-    get_data = requests.post(post_url, headers=post_head, json=post_body)
+    get_data = requests.post(get_url, headers=get_head, json=get_body)
     get_dict = json.loads(get_data.text)
 
     post_body["channel"] = get_dict["channel"]["id"]
