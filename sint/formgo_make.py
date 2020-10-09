@@ -15,7 +15,7 @@ def formgo_make(TOKEN_BEARER, datas):
   # Make answer thread message
   ## Branch with description is exist or not
   if datas["view"]["state"]["values"]["formgo_make_desc"]["formgo_make_desc"]["value"] == None:
-    var_desc = "_無し_"
+    var_desc = u"_無し_"
   else:
     var_desc = datas["view"]["state"]["values"]["formgo_make_desc"]["formgo_make_desc"]["value"]
 
@@ -81,7 +81,7 @@ def formgo_make(TOKEN_BEARER, datas):
   if datas["view"]["state"]["values"]["formgo_make_type"]["formgo_make_type"]["selected_option"]["value"] == "formgo_type_health":
     # Branch with description is exist or not
     if datas["view"]["state"]["values"]["formgo_make_desc"]["formgo_make_desc"]["value"] == None:
-      var_desc = "_無し_"
+      var_desc = u"_無し_"
     else:
       var_desc = datas["view"]["state"]["values"]["formgo_make_desc"]["formgo_make_desc"]["value"]
 
