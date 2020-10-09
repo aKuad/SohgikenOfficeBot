@@ -167,7 +167,7 @@ def formgo_make(TOKEN_BEARER, datas):
   get_url = "https://slack.com/api/conversations.open"
   get_head = { "Content-type": "application/json; charset=UTF-8;", "Authorization": "Bearer " + TOKEN_BEARER }
   get_body = { "users": datas["user"]["id"] }
-  get_data = requests.post(post_url, headers=post_head, json=post_body)
+  get_data = requests.post(get_url, headers=get_head, json=get_body)
   get_dict = json.loads(get_data.text)
 
   ## Make & post message
