@@ -115,16 +115,16 @@ def formgo_make(TOKEN_BEARER, datas):
                 {
                   "type": "button",
                   "text": { "type": "plain_text", "text": u":pencil: 回答する", "emoji": True },
-                  "action_id": var_fmts,
+                  "action_id": "answer",
                   "style": "primary",
-                  "value": "answer"
+                  "value": var_fmts
                 },
                 {
                   "type": "button",
                   "text": { "type": "plain_text", "text": u":x: このメッセージを削除", "emoji": True },
-                  "action_id": var_fmts,
+                  "action_id": "delete",
                   "style": "danger",
-                  "value": "delete",
+                  "value": var_fmts,
                   "confirm": {
                     "title": { "type": "plain_text", "text": u"メッセージを削除しますか？" },
                     "text": { "type": "plain_text", "text": u"このフォームの送信はできなくなります。\n送信の必要が無いことを確かめた上で、メッセージを削除して下さい。" },
