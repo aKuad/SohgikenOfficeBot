@@ -48,19 +48,19 @@ def formgo_make(TOKEN_BEARER, datas):
           },
           {
             "type": "section",
-            "text": { "type": "mrkdwn", "text": ":label: *フォームラベル*\n" + datas["view"]["state"]["values"]["formgo_make_label"]["formgo_make_label"]["value"] }
+            "text": { "type": "mrkdwn", "text": u":label: *フォームラベル*\n" + datas["view"]["state"]["values"]["formgo_make_label"]["formgo_make_label"]["value"] }
           },
           {
             "type": "section",
-            "text": { "type": "mrkdwn", "text": ":bar_chart: *フォームタイプ*\n" + datas["view"]["state"]["values"]["formgo_make_type"]["formgo_make_type"]["selected_option"]["text"]["text"] }
+            "text": { "type": "mrkdwn", "text": u":bar_chart: *フォームタイプ*\n" + datas["view"]["state"]["values"]["formgo_make_type"]["formgo_make_type"]["selected_option"]["text"]["text"] }
           },
           {
             "type": "section",
-            "text": { "type": "mrkdwn", "text": ":page_facing_up:" + var_desc }
+            "text": { "type": "mrkdwn", "text": u":page_facing_up: *フォーム説明*\n" + var_desc }
           },
           {
             "type": "section",
-            "text": { "type": "mrkdwn", "text": ":busts_in_silhouette: *未回答者*\n" + var_tgus }
+            "text": { "type": "mrkdwn", "text": u":busts_in_silhouette: *未回答者*\n" + var_tgus }
           }
         ]
       },
