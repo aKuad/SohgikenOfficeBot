@@ -40,7 +40,7 @@ def formgo_make(TOKEN_BEARER, datas):
     "channel": os.environ["S_CHID_FORM"],
     "attachments": [
       {
-        "color": "good",
+        "color": "2EB886",
         "blocks": [
           {
             "type": "header",
@@ -65,7 +65,7 @@ def formgo_make(TOKEN_BEARER, datas):
         ]
       },
       {
-        "color": "good",
+        "color": "2EB886",
         "text": "",
         "footer": "SohgikenOfficeBot `/formgo`"
       }
@@ -91,6 +91,7 @@ def formgo_make(TOKEN_BEARER, datas):
       "text": "",
       "attachments": [
         {
+          "color": "2EB886",
           "blocks": [
             {
               "type": "header",
@@ -138,6 +139,7 @@ def formgo_make(TOKEN_BEARER, datas):
           ]
         },
         {
+          "color": "2EB886",
           "text": "",
           "footer": "SohgikenOfficeBot `/formgo`"
         }
