@@ -106,6 +106,8 @@ def formgo_bpsh(TOKEN_BEARER, datas):
         }
       ]
     }
+    stt_result = requests.post(post_url, headers=post_head, json=post_body)
+    print(stt_result.text)
 
 
   # Make & post message
