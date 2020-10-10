@@ -172,7 +172,7 @@ def formgo_make(TOKEN_BEARER, datas):
     "attachments": [
       {
         "color": "good",
-        "title": ":heavy_check_mark: Form making has succeed.",
+        "title": u":heavy_check_mark: フォームは正常に作成されました。",
         "text": u"Form TS: " + var_fmts,
         "footer": "SohgikenOfficeBot `/formgo`"
       }
