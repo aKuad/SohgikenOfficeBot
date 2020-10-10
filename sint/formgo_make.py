@@ -44,11 +44,7 @@ def formgo_make(TOKEN_BEARER, datas):
         "blocks": [
           {
             "type": "header",
-            "text": { "type": "plain_text", "text": u"フォーム", "emoji": True }
-          },
-          {
-            "type": "section",
-            "text": { "type": "mrkdwn", "text": u":label: *フォームラベル*\n" + datas["view"]["state"]["values"]["formgo_make_label"]["formgo_make_label"]["value"] }
+            "text": { "type": "plain_text", "text": datas["view"]["state"]["values"]["formgo_make_label"]["formgo_make_label"]["value"], "emoji": True }
           },
           {
             "type": "section",
