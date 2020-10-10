@@ -73,78 +73,72 @@ def formgo_make(TOKEN_BEARER, datas):
 
 
   # Make answer button message - Branch with form type
-  ## Type - Health check form
-  if datas["view"]["state"]["values"]["formgo_make_type"]["formgo_make_type"]["selected_option"]["value"] == "formgo_type_health":
-    # Branch with description is exist or not
-    if datas["view"]["state"]["values"]["formgo_make_desc"]["formgo_make_desc"]["value"] == None:
-      var_desc = u"_無し_"
-    else:
-      var_desc = datas["view"]["state"]["values"]["formgo_make_desc"]["formgo_make_desc"]["value"]
-
-    # Make message body
-    post_body = {
-      "as_user": True,
-      "text": "",
-      "attachments": [
-        {
-          "color": "2EB886",
-          "blocks": [
-            {
-              "type": "header",
-              "text": { "type": "plain_text", "text": u"あなたが回答対象のフォームが作成されました。", "emoji": True }
-            },
-            {
-              "type": "section",
-              "text": { "type": "mrkdwn", "text": ":label: *" + datas["view"]["state"]["values"]["formgo_make_label"]["formgo_make_label"]["value"] + "*" }
-            },
-            {
-              "type": "section",
-              "text": { "type": "mrkdwn", "text": ":bar_chart: " + datas["view"]["state"]["values"]["formgo_make_type"]["formgo_make_type"]["selected_option"]["text"]["text"] }
-            },
-            {
-              "type": "section",
-              "text": { "type": "mrkdwn", "text": ":page_facing_up:" + var_desc }
-            },
-            {
-              "type": "actions",
-              "block_id": "sint_formgo_bpsh",
-              "elements": [
-                {
-                  "type": "button",
-                  "text": { "type": "plain_text", "text": u":pencil: 回答する", "emoji": True },
-                  "action_id": "answer",
-                  "style": "primary",
-                  "value": var_fmts
-                },
-                {
-                  "type": "button",
-                  "text": { "type": "plain_text", "text": u":x: このメッセージを削除", "emoji": True },
-                  "action_id": "delete",
-                  "style": "danger",
-                  "value": var_fmts,
-                  "confirm": {
-                    "title": { "type": "plain_text", "text": u"メッセージを削除しますか？" },
-                    "text": { "type": "plain_text", "text": u"このフォームの送信はできなくなります。\n送信の必要が無いことを確かめた上で、メッセージを削除して下さい。" },
-                    "confirm": { "type": "plain_text", "text": u"削除する" },
-                    "deny": { "type": "plain_text", "text": u"キャンセル" },
-                    "style": "danger"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "color": "2EB886",
-          "text": "",
-          "footer": "SohgikenOfficeBot `/formgo`"
-        }
-      ]
-    }
-
-  ## Invalid
+  ## Branch with description is exist or not
+  if datas["view"]["state"]["values"]["formgo_make_desc"]["formgo_make_desc"]["value"] == None:
+    var_desc = u"_無し_"
   else:
-    pass
+    var_desc = datas["view"]["state"]["values"]["formgo_make_desc"]["formgo_make_desc"]["value"]
+
+  ## Make message body
+  post_body = {
+    "as_user": True,
+    "text": "",
+    "attachments": [
+      {
+        "color": "2EB886",
+        "blocks": [
+          {
+            "type": "header",
+            "text": { "type": "plain_text", "text": u"あなたが回答対象のフォームが作成されました。", "emoji": True }
+          },
+          {
+            "type": "section",
+            "text": { "type": "mrkdwn", "text": u":label: *" + datas["view"]["state"]["values"]["formgo_make_label"]["formgo_make_label"]["value"] + "*" }
+          },
+          {
+            "type": "section",
+            "text": { "type": "mrkdwn", "text": u":bar_chart: " + datas["view"]["state"]["values"]["formgo_make_type"]["formgo_make_type"]["selected_option"]["text"]["text"] }
+          },
+          {
+            "type": "section",
+            "text": { "type": "mrkdwn", "text": u":page_facing_up:" + var_desc }
+          },
+          {
+            "type": "actions",
+            "block_id": "sint_formgo_bpsh",
+            "elements": [
+              {
+                "type": "button",
+                "text": { "type": "plain_text", "text": u":pencil: 回答する", "emoji": True },
+                "action_id": datas["view"]["state"]["values"]["formgo_make_type"]["formgo_make_type"]["selected_option"]["value"],
+                "style": "primary",
+                "value": var_fmts
+              },
+              {
+                "type": "button",
+                "text": { "type": "plain_text", "text": u":x: このメッセージを削除", "emoji": True },
+                "action_id": "formgo_delete_nopost",
+                "style": "danger",
+                "value": var_fmts,
+                "confirm": {
+                  "title": { "type": "plain_text", "text": u"メッセージを削除しますか？" },
+                  "text": { "type": "plain_text", "text": u"このフォームの送信はできなくなります。\n送信の必要が無いことを確かめた上で、メッセージを削除して下さい。" },
+                  "confirm": { "type": "plain_text", "text": u"削除する" },
+                  "deny": { "type": "plain_text", "text": u"キャンセル" },
+                  "style": "danger"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "color": "2EB886",
+        "text": "",
+        "footer": "SohgikenOfficeBot `/formgo`"
+      }
+    ]
+  }
 
 
   # Open and get direct message channel id
@@ -179,7 +173,7 @@ def formgo_make(TOKEN_BEARER, datas):
       {
         "color": "good",
         "title": ":heavy_check_mark: Form making has succeed.",
-        "text": "Form TS: " + var_fmts,
+        "text": u"Form TS: " + var_fmts,
         "footer": "SohgikenOfficeBot `/formgo`"
       }
     ]
