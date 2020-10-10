@@ -21,7 +21,7 @@ def formgo_bpsh(TOKEN_BEARER, datas):
       "view": {
         "callback_id": "sint_formgo_sbmt",
         "external_id": "formgo_type_health",
-        "title": { "type": "plain_text", "text": re.sub("^:label: ", "", datas["message"]["attachments"]["blocks"][1]["text"]["text"]), "emoji": True },
+        "title": { "type": "plain_text", "text": re.sub("^:label: ", "", datas["message"]["attachments"][0]["blocks"][1]["text"]["text"])},
         "type": "modal",
         "submit": { "type": "plain_text", "text": u":incoming_envelope: 送信",	"emoji": True },
         "close": { "type": "plain_text",  "text": u":x: キャンセル", "emoji": True },
@@ -109,7 +109,7 @@ def formgo_bpsh(TOKEN_BEARER, datas):
         {
           "color": "good",
           "title": u"メッセージを削除しました。",
-          "text": datas["message"]["attachments"]["blocks"][1]["text"]["text"] + u"このフォームを未回答のまま閉じました。",
+          "text": datas["message"]["attachments"][0]["blocks"][1]["text"]["text"] + u"\nこのフォームを未回答のまま閉じました。",
           "footer": "SohgikenOfficeBot `/formgo`"
         }
       ]
@@ -141,7 +141,7 @@ def formgo_bpsh(TOKEN_BEARER, datas):
         {
           "color": "good",
           "title": u"メッセージを削除しました。",
-          "text": datas["message"]["attachments"]["blocks"][1]["text"]["text"] + u"このフォームは回答済みです。",
+          "text": datas["message"]["attachments"][0]["blocks"][1]["text"]["text"] + u"\nこのフォームは回答済みです。",
           "footer": "SohgikenOfficeBot `/formgo`"
         }
       ]
